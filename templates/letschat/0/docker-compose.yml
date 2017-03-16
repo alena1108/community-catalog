@@ -1,0 +1,18 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:latest
+    stdin_open: true
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+  letschat:
+    image: sdelements/lets-chat
+    stdin_open: true
+    tty: true
+    links:
+    - mongo:mongo
+    ports:
+    - ${public_port}:8080/tcp
+    labels:
+      io.rancher.container.pull_image: always

@@ -1,0 +1,20 @@
+.catalog:
+  name: "Letschat"
+  version: "v0.1"
+  description: "letschat application"
+  uuid: letschat-0
+  questions:
+    - variable: public_port
+      description: "public port to access the letschat"
+      label: "Public Port"
+      required: true
+      default: "100"
+      type: "int"
+version: '2'
+services:
+  mongo:
+    scale: 1
+    start_on_create: true
+  letschat:
+    scale: 1
+    start_on_create: true
